@@ -1,4 +1,4 @@
-import os, uuid, time, textwrap
+import os, uuid, textwrap
 
 import openai
 import streamlit as st
@@ -40,7 +40,6 @@ def main():
             for chunk in chunks:
                 prompt = read_file("prompt.txt").replace('<<SUMMARY>>', chunk)
                 summary = generate_summary(prompt)
-                time.sleep(3)
                 type_text(container, summary)
 
         type_text(container, "# That's all")
